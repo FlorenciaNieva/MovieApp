@@ -11,8 +11,8 @@ import ContaineSearch from "./components/ContainSearch";
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
-        <Header />
         <Route path="/" element={<Home />} />
         <Route path="/details/:id" element={<ContainDetails />} />
         <Route path="/releases" element={<ContainReleases />} />
