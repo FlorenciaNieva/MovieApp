@@ -25,10 +25,21 @@ const useMovies = () => {
       .catch((error) => console.error(error));
   };
 
+  const getTopRated = () => {
+    axios
+      .get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`)
+      .then((response) => {
+        // console.log(response.data);
+        setInfo(response.data.results);
+      })
+      .catch((error) => console.error(error));
+  };
+
   return {
     info,
     getPopular,
     getNewMovies,
+    getTopRated
   };
 };
 
