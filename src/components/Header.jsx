@@ -45,7 +45,6 @@ export default function Header() {
         </Box>
         <Spacer />
         <Flex mt="4" mr="5" color="white" fontSize="25px">
-          <nav>
             <ChakraLink
               as={Link}
               to="/favorites"
@@ -63,7 +62,6 @@ export default function Header() {
             >
               <FiSearch />
             </ChakraLink>
-          </nav>
         </Flex>
       </Flex>
     </header>
