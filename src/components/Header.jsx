@@ -32,7 +32,7 @@ export default function Header() {
               m="2"
               _hover={{ color: "#ff2323" }}
             >
-              Realeases
+              Premieres
             </ChakraLink>
             <ChakraLink
               as={Link}
