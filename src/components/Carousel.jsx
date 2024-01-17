@@ -66,7 +66,7 @@ export default function Carousel() {
   return (
     <Slider
       {...settings}
-      style={{ width: "100vw", backgroungColor: "red", color: "white" }}
+      style={{ width: "100vw", color: "white", position: "absolute", top: "0" }}
     >
       {info.map((movie) => (
         <Box key={movie.id}>
