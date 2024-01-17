@@ -35,6 +35,16 @@ const useMovies = () => {
       .catch((error) => console.error(error));
   };
 
+  const getMovieId = (id) => {
+    axios
+      .get(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
+      .then((response) => {
+        // console.log(response.data);
+        setInfo(response.data);
+      })
+      .catch((error) => console.error(error));
+  }
+
   const searchMovie = (movie) => {
     axios
       .get(`https://api.themoviedb.org/3/search/movie?query=${movie}&api_key=${apiKey}`)
@@ -50,6 +60,7 @@ const useMovies = () => {
     getPopular,
     getNewMovies,
     getTopRated,
+    getMovieId,
     searchMovie,
   };
 };
