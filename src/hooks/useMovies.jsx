@@ -6,8 +6,7 @@ const useMovies = () => {
   const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
 
   const getPopular = () => {
-    axios
-      .get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
+    axios(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
       .then((response) => {
         setInfo(response.data.results);
       })
@@ -15,8 +14,7 @@ const useMovies = () => {
   };
 
   const getNewMovies = () => {
-    axios
-      .get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`)
+    axios(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`)
       .then((response) => {
         setInfo(response.data.results);
       })
@@ -24,8 +22,7 @@ const useMovies = () => {
   };
 
   const getTopRated = () => {
-    axios
-      .get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`)
+    axios(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`)
       .then((response) => {
         setInfo(response.data.results);
       })
@@ -33,8 +30,7 @@ const useMovies = () => {
   };
 
   const getMovieId = (id) => {
-    axios
-      .get(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
+    axios(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
       .then((response) => {
         setInfo(response.data);
       })
@@ -42,8 +38,7 @@ const useMovies = () => {
   }
 
   const searchMovie = (movie) => {
-    axios
-      .get(`https://api.themoviedb.org/3/search/movie?query=${movie}&api_key=${apiKey}`)
+    axios(`https://api.themoviedb.org/3/search/movie?query=${movie}&api_key=${apiKey}`)
       .then((response) => {
         setInfo(response.data.results);
       })
