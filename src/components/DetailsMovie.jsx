@@ -12,6 +12,13 @@ export default function DetailsMovie() {
     getMovieId(params.id);
   }, [info.id]);
 
+  function minToHs(min) {
+    const horas = Math.floor(min / 60);
+    const minutosRestantes = min % 60;
+
+    return `${horas}hs ${minutosRestantes}min`;
+  }
+
   return (
     <>
       <Box position="absolute" top={0}>
@@ -43,7 +50,7 @@ export default function DetailsMovie() {
             {info.genres?.map((gen) => (
               <Text as='b' mr={3} color="RGB(217 218 222)">{gen.name}</Text>
             ))}
-            <Text>{info.runtime}</Text>
+            <Text>{minToHs(info.runtime)}</Text>
             <Text>{new Date(info.release_date).getFullYear()}</Text>
             <Heading as='h5' size='sm' mt="1">Overview</Heading>
             <Text>{info.overview}</Text>
