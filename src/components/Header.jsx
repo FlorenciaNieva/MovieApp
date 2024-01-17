@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <header>
       <Flex
-        w="100vw"
+        w="100%"
         h="80px"
         bg="#ff2323"
         bgGradient="linear-gradient(to bottom, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.8) 70%, rgba(0, 0, 0, 0) 100%)"
