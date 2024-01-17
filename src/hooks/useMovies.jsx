@@ -9,7 +9,6 @@ const useMovies = () => {
     axios
       .get(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
       .then((response) => {
-        // console.log(response.data);
         setInfo(response.data.results);
       })
       .catch((error) => console.error(error));
@@ -19,7 +18,6 @@ const useMovies = () => {
     axios
       .get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`)
       .then((response) => {
-        // console.log(response.data);
         setInfo(response.data.results);
       })
       .catch((error) => console.error(error));
@@ -29,7 +27,6 @@ const useMovies = () => {
     axios
       .get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`)
       .then((response) => {
-        // console.log(response.data);
         setInfo(response.data.results);
       })
       .catch((error) => console.error(error));
@@ -39,7 +36,6 @@ const useMovies = () => {
     axios
       .get(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
       .then((response) => {
-        // console.log(response.data);
         setInfo(response.data);
       })
       .catch((error) => console.error(error));
@@ -49,7 +45,6 @@ const useMovies = () => {
     axios
       .get(`https://api.themoviedb.org/3/search/movie?query=${movie}&api_key=${apiKey}`)
       .then((response) => {
-        // console.log(response.data);
         setInfo(response.data.results);
       })
       .catch((error) => console.error(error));
