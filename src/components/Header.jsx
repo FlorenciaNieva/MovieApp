@@ -11,7 +11,7 @@ import { MdFavorite } from "react-icons/md";
 
 export default function Header() {
   return (
-    <header>
+    <header style={{ position: "relative", zIndex: "1", }}>
       <Flex
         w="100%"
         h="80px"
