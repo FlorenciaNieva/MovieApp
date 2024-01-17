@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import ContainDetails from "./components/ContainDetails";
+import DetailsMovie from "./components/DetailsMovie";
 import ContainReleases from "./components/ContainReleases";
 import ContainPopular from "./components/ContainPopular";
 import ContainFavorites from "./components/ContainFavorites";
@@ -16,7 +16,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/details/:id" element={<ContainDetails />} />
+          <Route path="/details/:id" element={<DetailsMovie />} />
           <Route path="/releases" element={<ContainReleases />} />
           <Route path="/popular" element={<ContainPopular />} />
           <Route path="/favorites" element={<ContainFavorites />} />
