@@ -66,14 +66,14 @@ export default function Carousel() {
   return (
     <Slider
       {...settings}
-      style={{ width: "100vw", backgroungColor: "red", color: "white" }}
+      style={{ width: "100vw", color: "white", position: "absolute", top: "0" }}
     >
       {info.map((movie) => (
         <Box key={movie.id}>
           <Image
             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
             alt="image"
-            maxH="80vh"
+            maxH="90vh"
             w="100%"
             position="relative"
           />
