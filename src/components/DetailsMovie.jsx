@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import useMovies from "../hooks/useMovies";
 import { useParams } from "react-router";
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { FaStar } from "react-icons/fa";
+import { IoPlayCircleOutline } from "react-icons/io5";
 
 export default function DetailsMovie() {
   const { info, getMovieId } = useMovies();
@@ -54,6 +55,10 @@ export default function DetailsMovie() {
             <Text>{minToHs(info.runtime)}</Text>
             <Heading as='h5' size='sm' mt="1">Overview</Heading>
             <Text>{info.overview}</Text>
+            <Button bg="#f90909" color="white" mt={4} p={3}>
+              <IoPlayCircleOutline fontSize="25px"/>
+              Ver thriller
+            </Button>
           </Box>
         </Flex>
       </Box>
