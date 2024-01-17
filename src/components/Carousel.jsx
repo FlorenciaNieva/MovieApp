@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "../../node_modules/slick-carousel/slick/slick.css";
 import "../../node_modules/slick-carousel/slick/slick-theme.css";
 import useMovies from "../hooks/useMovies";
-import { Image, Box } from "@chakra-ui/react";
+import { Image, Box, Heading, Text, Button } from "@chakra-ui/react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
 export default function Carousel() {
@@ -75,6 +75,23 @@ export default function Carousel() {
             w="100%"
             position="relative"
           />
+          <Box
+            position="absolute"
+            top={0}
+            w="50rem"
+            height="100%"
+            bgGradient="linear(to-r, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0) 100%)"
+          >
+            <Box position="absolute" top={0} pt={40} pl="45px" w="70%">
+              <Heading as="h2" size="xl" pb={3}>
+                {movie.title}
+              </Heading>
+              <Text pb={3}>{movie.overview}</Text>
+              <Button bg="#f90909" color="white">
+                See more
+              </Button>
+            </Box>
+          </Box>
         </Box>
       ))}
     </Slider>
