@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { FaStar } from "react-icons/fa";
 import { IoPlayCircleOutline } from "react-icons/io5";
+import { MdFavorite } from "react-icons/md";
 
 export default function DetailsMovie() {
   const { info, getMovieId } = useMovies();
@@ -55,9 +56,12 @@ export default function DetailsMovie() {
             <Text>{minToHs(info.runtime)}</Text>
             <Heading as='h5' size='sm' mt="1">Overview</Heading>
             <Text>{info.overview}</Text>
-            <Button bg="#f90909" color="white" mt={4} p={3}>
+            <Button bg="#f90909" color="white" mt={4} p={3} _hover={{ bg: "#ff2929" }}>
               <IoPlayCircleOutline fontSize="25px"/>
               Ver thriller
+            </Button>
+            <Button bg="rgb(111,111,129)" color="white" mt={4} ml={3} p={3} _hover={{ bg: "rgb(55,56,69)" }}>
+              <MdFavorite fontSize="30px" />
             </Button>
           </Box>
         </Flex>
