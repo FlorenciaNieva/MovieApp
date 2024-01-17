@@ -47,11 +47,11 @@ export default function DetailsMovie() {
               </Text>
             </Flex>
             <Heading mb={3}>{info.title}</Heading>
+            <Heading as='h5' size='sm'>{new Date(info.release_date).getFullYear()}</Heading>
             {info.genres?.map((gen) => (
               <Text as='b' mr={3} color="RGB(217 218 222)">{gen.name}</Text>
             ))}
             <Text>{minToHs(info.runtime)}</Text>
-            <Text>{new Date(info.release_date).getFullYear()}</Text>
             <Heading as='h5' size='sm' mt="1">Overview</Heading>
             <Text>{info.overview}</Text>
           </Box>
