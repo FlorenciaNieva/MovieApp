@@ -5,9 +5,11 @@ import "../../node_modules/slick-carousel/slick/slick-theme.css";
 import useMovies from "../hooks/useMovies";
 import { Image, Box, Heading, Text, Button } from "@chakra-ui/react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 export default function Carousel() {
   const { info, getNewMovies } = useMovies();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getNewMovies();
@@ -79,7 +81,7 @@ export default function Carousel() {
             position="absolute"
             top={0}
             w="50rem"
-            height="100%"
+            height="99%"
             bgGradient="linear(to-r, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0) 100%)"
           >
             <Box position="absolute" top={0} pt={40} pl="45px" w="70%">
@@ -87,7 +89,7 @@ export default function Carousel() {
                 {movie.title}
               </Heading>
               <Text pb={3}>{movie.overview}</Text>
-              <Button bg="#f90909" color="white">
+              <Button bg="#f90909" color="white" onClick={() => navigate(`/details/${movie.id}`)}>
                 See more
               </Button>
             </Box>
