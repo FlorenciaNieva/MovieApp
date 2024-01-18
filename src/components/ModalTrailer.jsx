@@ -6,7 +6,7 @@ import {
   ModalCloseButton,
 } from '@chakra-ui/react';
 
-export default function ModalTrailer({ isOpen, onClose }) {
+export default function ModalTrailer({ isOpen, onClose, trailerId }) {
   return (
     <>
       <Modal onClose={onClose} size="xl" isOpen={isOpen}>
