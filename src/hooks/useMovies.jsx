@@ -66,6 +66,7 @@ const useMovies = () => {
     getNewMovies,
     getTopRated,
     getMovieId,
+    trailer,
     getVideo,
     searchMovie,
   };
