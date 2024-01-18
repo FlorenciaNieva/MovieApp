@@ -8,12 +8,13 @@ import { MdFavorite } from "react-icons/md";
 import ModalTrailer from "./ModalTrailer";
 
 export default function DetailsMovie() {
-  const { info, getMovieId } = useMovies();
+  const { info, getMovieId, trailer, getVideo } = useMovies();
   const params = useParams();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     getMovieId(params.id);
+    getVideo(params.id)
   }, [params.id]);
 
   function minToHs(min) {
@@ -66,7 +67,7 @@ export default function DetailsMovie() {
               <IoPlayCircleOutline fontSize="25px"/>
               Ver thriller
             </Button>
-            <ModalTrailer isOpen={isOpen} onClose={onClose} />
+            <ModalTrailer isOpen={isOpen} onClose={onClose} trailerId={trailer?.key} />
             <Button bg="rgb(111,111,129)" color="white" mt={4} ml={3} p={3} _hover={{ bg: "rgb(55,56,69)" }}>
               <MdFavorite fontSize="30px" />
             </Button>
