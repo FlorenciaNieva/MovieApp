@@ -23,6 +23,10 @@ export default function DetailsMovie() {
     return `${horas}hs ${minutosRestantes}min`;
   }
 
+  const handleButtonTrailer = () => {
+    onOpen();
+  }
+
   return (
     <>
       <Box position="absolute" top={0}>
@@ -58,7 +62,7 @@ export default function DetailsMovie() {
             <Text>{minToHs(info.runtime)}</Text>
             <Heading as='h5' size='sm' mt="1">Overview</Heading>
             <Text>{info.overview}</Text>
-            <Button bg="#f90909" color="white" mt={4} p={3} _hover={{ bg: "#ff2929" }}>
+            <Button onClick={() => handleButtonTrailer()} bg="#f90909" color="white" mt={4} p={3} _hover={{ bg: "#ff2929" }}>
               <IoPlayCircleOutline fontSize="25px"/>
               Ver thriller
             </Button>
