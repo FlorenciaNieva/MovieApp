@@ -3,6 +3,7 @@ import axios from "axios";
 
 const useMovies = () => {
   const [info, setInfo] = useState([]);
+  const [trailer, setTrailer] = useState(null);
   const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
 
   const getPopular = () => {
