@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CardMovie from "./CardMovie";
 import { Heading } from "@chakra-ui/react";
+import useMovies from "../hooks/useMovies";
 
-export default function CarouselCards( title, info ) {
+export default function CarouselCards({ title, category }) {
+  const {info, getPopular, getTopRated} = useMovies();
+
+  if(category === "popular" ) {
+    useEffect(() => {
+      getPopular();
+    }, []);
+  } else {
+    useEffect(() => {
+      getTopRated();
+    }, []);
+  }
+  
   return (
     <>
       <Heading as='h3' size='lg' pl={5}>{title}</Heading>
       <Carousel
-        additionalTransfrom={10}
+        additionalTransfrom={0}
         arrows
         autoPlaySpeed={3000}
-        centerMode={true}
+        centerMode={false}
         containerClass="container"
         draggable
         focusOnSelect={false}
@@ -29,7 +42,7 @@ export default function CarouselCards( title, info ) {
               max: 3000,
               min: 1024,
             },
-            items: 5,
+            items: 6,
             partialVisibilityGutter: 1,
           },
           mobile: {
