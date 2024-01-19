@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 export default function CardMovie() {
   const navigate = useNavigate();
-  
+
   return (
     <>
-      <Box m={5} maxW="160px" onClick={() => navigate("/")}>
+      <Box m={5} maxW="160px" cursor="pointer" onClick={() => navigate("/")}>
         <Card
           maxW="100%"
           h="250px"
