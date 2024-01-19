@@ -2,12 +2,14 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CardMovie from "./CardMovie";
+import { Heading } from "@chakra-ui/react";
 
-export default function CarouselCards() {
+export default function CarouselCards( title ) {
   return (
     <>
+      <Heading as='h3' size='lg' pl={5}>{title}</Heading>
       <Carousel
-        additionalTransfrom={0}
+        additionalTransfrom={10}
         arrows
         autoPlaySpeed={3000}
         centerMode={true}
@@ -28,7 +30,7 @@ export default function CarouselCards() {
               min: 1024,
             },
             items: 5,
-            partialVisibilityGutter: 40,
+            partialVisibilityGutter: 1,
           },
           mobile: {
             breakpoint: {
@@ -55,7 +57,6 @@ export default function CarouselCards() {
         slidesToSlide={1}
         swipeable
       >
-        <CardMovie />
       </Carousel>
     </>
   );
