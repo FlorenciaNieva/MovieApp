@@ -4,7 +4,7 @@ import "react-multi-carousel/lib/styles.css";
 import CardMovie from "./CardMovie";
 import { Heading } from "@chakra-ui/react";
 
-export default function CarouselCards( title ) {
+export default function CarouselCards( title, info ) {
   return (
     <>
       <Heading as='h3' size='lg' pl={5}>{title}</Heading>
@@ -57,6 +57,9 @@ export default function CarouselCards( title ) {
         slidesToSlide={1}
         swipeable
       >
+        {info?.map((movie) => (
+          <CardMovie key={movie.id} id={movie.id} name={movie.title} poster={movie.poster_path}/>
+        ))}
       </Carousel>
     </>
   );
