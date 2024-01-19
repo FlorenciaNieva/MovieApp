@@ -73,7 +73,7 @@ export default function Carousel() {
           <Image
             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
             alt="image"
-            maxH="90vh"
+            maxH="94vh"
             w="100%"
             position="relative"
           />
