@@ -9,16 +9,16 @@ const useMovies = () => {
   const [trailer, setTrailer] = useState(null);
   const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
 
-  const getPopular = () => {
-    axios(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
+  const getPopular = (page) => {
+    axios(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${page}`)
       .then((response) => {
         setInfo(response.data.results);
       })
       .catch((error) => console.error(error));
   };
 
-  const getNewMovies = () => {
-    axios(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`)
+  const getNewMovies = (page) => {
+    axios(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${page}`)
       .then((response) => {
         setInfo(response.data.results);
       })
