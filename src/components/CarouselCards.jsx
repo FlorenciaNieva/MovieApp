@@ -6,11 +6,11 @@ import { Heading } from "@chakra-ui/react";
 import useMovies from "../hooks/useMovies";
 
 export default function CarouselCards({ title, category }) {
-  const {info, getPopular, getTopRated} = useMovies();
+  const {info, page, getPopular, getTopRated} = useMovies();
 
   if(category === "popular" ) {
     useEffect(() => {
-      getPopular();
+      getPopular(page);
     }, []);
   } else {
     useEffect(() => {
