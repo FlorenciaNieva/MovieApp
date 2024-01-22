@@ -3,23 +3,34 @@ import axios from "axios";
 
 const useMovies = () => {
   const [info, setInfo] = useState([]);
+  const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(0);
   const [trailer, setTrailer] = useState(null);
   const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
 
-  const getPopular = () => {
-    axios(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`)
+  const getPopular = (page) => {
+    axios(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${page}`)
       .then((response) => {
         setInfo(response.data.results);
+        setTotalPage(response.data.total_results);
+        setCurrentPage(response.data.page);
       })
       .catch((error) => console.error(error));
   };
 
-  const getNewMovies = () => {
-    axios(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}`)
+  const getNewMovies = (page) => {
+    axios(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${page}`)
       .then((response) => {
         setInfo(response.data.results);
+        setTotalPage(response.data.total_results);
+        setCurrentPage(response.data.page);
       })
       .catch((error) => console.error(error));
+  };
+
+  const handlePageChange = (newPage) =>{
+    setPage(newPage);
   };
 
   const getTopRated = () => {
@@ -62,6 +73,10 @@ const useMovies = () => {
 
   return {
     info,
+    page,
+    currentPage,
+    totalPage,
+    handlePageChange,
     getPopular,
     getNewMovies,
     getTopRated,
@@ -73,3 +88,4 @@ const useMovies = () => {
 };
 
 export default useMovies;
+
