@@ -29,6 +29,10 @@ const useMovies = () => {
       .catch((error) => console.error(error));
   };
 
+  const handlePageChange = (newPage) =>{
+    setPage(newPage);
+  };
+
   const getTopRated = () => {
     axios(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`)
       .then((response) => {
@@ -72,6 +76,7 @@ const useMovies = () => {
     page,
     currentPage,
     totalPage,
+    handlePageChange,
     getPopular,
     getNewMovies,
     getTopRated,
