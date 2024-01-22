@@ -1,7 +1,7 @@
 import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
 
-export default function Pagination({
+export default function BottomPagination({
   page,
   currentPage,
   totalPage,
