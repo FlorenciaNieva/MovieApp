@@ -8,11 +8,11 @@ import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { useNavigate } from "react-router";
 
 export default function Carousel() {
-  const { info, getNewMovies } = useMovies();
+  const { info, page, getNewMovies } = useMovies();
   const navigate = useNavigate();
 
   useEffect(() => {
-    getNewMovies();
+    getNewMovies(page);
   }, []);
 
   const CustomPrevArrow = (props) => {
