@@ -23,7 +23,7 @@ export default function ContainPopular() {
           />
         ))}
       </Flex>
-      <Pagination currentPage={currentPage} totalPage={totalPage} handlePageChange={handlePageChange} />
+      <Pagination currentPage={currentPage} totalPage={totalPage} handlePageChange={handlePageChange} page={page} />
     </>
   );
 }
