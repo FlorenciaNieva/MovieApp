@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import useMovies from "../hooks/useMovies";
 import CardMovie from "./CardMovie";
 import { Flex, Heading } from "@chakra-ui/react";
+import BottomPagination from "./Pagination/BottomPagination";
 
 export default function ContainPremieres() {
   const { info, page, currentPage, handlePageChange, totalPage, getNewMovies } = useMovies();
@@ -22,6 +23,7 @@ export default function ContainPremieres() {
           />
         ))}
       </Flex>
+      <BottomPagination currentPage={currentPage} totalPage={totalPage} handlePageChange={handlePageChange} page={page} />
     </>
   );
 }
