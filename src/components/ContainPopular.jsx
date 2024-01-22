@@ -4,7 +4,7 @@ import CardMovie from "./CardMovie";
 import { Flex, Heading } from "@chakra-ui/react";
 
 export default function ContainPopular() {
-  const { info, page, getPopular } = useMovies();
+  const { info, page, currentPage, handlePageChange, totalPage, getPopular } = useMovies();
 
   useEffect(() => {
     getPopular(page);
