@@ -4,7 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import DetailsMovie from "./components/DetailsMovie";
-import ContainReleases from "./components/ContainReleases";
+import ContainPremieres from "./components/ContainPremieres";
 import ContainPopular from "./components/ContainPopular";
 import ContainFavorites from "./components/ContainFavorites";
 import ContaineSearch from "./components/ContainSearch";
@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/details/:id" element={<DetailsMovie />} />
-          <Route path="/releases" element={<ContainReleases />} />
+          <Route path="/premieres" element={<ContainPremieres />} />
           <Route path="/popular" element={<ContainPopular />} />
           <Route path="/favorites" element={<ContainFavorites />} />
           <Route path="/search" element={<ContaineSearch />} />
