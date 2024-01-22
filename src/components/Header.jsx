@@ -27,7 +27,7 @@ export default function Header() {
             </ChakraLink>
             <ChakraLink
               as={Link}
-              to="/releases"
+              to="/premieres"
               m="2"
               _hover={{ color: "#ff2323" }}
             >
