@@ -2,6 +2,7 @@ import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
 
 export default function Pagination({
+  page,
   currentPage,
   totalPage,
   handlePageChange,
@@ -16,7 +17,7 @@ export default function Pagination({
       current={currentPage}
       total={totalPage}
       pageSize={20}
-      onChange={handlePageChange}
+      onChange={() => handlePageChange(page + 1)}
     />
   );
 }
