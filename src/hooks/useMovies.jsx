@@ -73,6 +73,10 @@ const useMovies = () => {
 
   return {
     info,
+    page,
+    currentPage,
+    totalPage,
+    handlePageChange,
     getPopular,
     getNewMovies,
     getTopRated,
