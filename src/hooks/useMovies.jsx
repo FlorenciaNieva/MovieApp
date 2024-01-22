@@ -3,6 +3,9 @@ import axios from "axios";
 
 const useMovies = () => {
   const [info, setInfo] = useState([]);
+  const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(0);
   const [trailer, setTrailer] = useState(null);
   const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
 
@@ -73,3 +76,4 @@ const useMovies = () => {
 };
 
 export default useMovies;
+
