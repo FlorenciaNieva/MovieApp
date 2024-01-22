@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import useMovies from "../hooks/useMovies";
 import CardMovie from "./CardMovie";
 import { Flex, Heading } from "@chakra-ui/react";
+import Pagination from "./Pagination/Pagination";
 
 export default function ContainPopular() {
   const { info, page, currentPage, handlePageChange, totalPage, getPopular } = useMovies();
@@ -22,6 +23,7 @@ export default function ContainPopular() {
           />
         ))}
       </Flex>
+      <Pagination currentPage={currentPage} totalPage={totalPage} handlePageChange={handlePageChange} />
     </>
   );
 }
