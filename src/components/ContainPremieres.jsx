@@ -4,7 +4,7 @@ import CardMovie from "./CardMovie";
 import { Flex, Heading } from "@chakra-ui/react";
 
 export default function ContainPremieres() {
-  const { info, page, getNewMovies } = useMovies();
+  const { info, page, currentPage, handlePageChange, totalPage, getNewMovies } = useMovies();
 
   useEffect(() => {
     getNewMovies(page);
