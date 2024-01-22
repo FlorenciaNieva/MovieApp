@@ -13,6 +13,8 @@ const useMovies = () => {
     axios(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${page}`)
       .then((response) => {
         setInfo(response.data.results);
+        setTotalPage(response.data.total_results);
+        setCurrentPage(response.data.page);
       })
       .catch((error) => console.error(error));
   };
@@ -21,6 +23,8 @@ const useMovies = () => {
     axios(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${page}`)
       .then((response) => {
         setInfo(response.data.results);
+        setTotalPage(response.data.total_results);
+        setCurrentPage(response.data.page);
       })
       .catch((error) => console.error(error));
   };
