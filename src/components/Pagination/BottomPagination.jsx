@@ -7,6 +7,12 @@ export default function BottomPagination({
   totalPage,
   handlePageChange,
 }) {
+  
+  const onChange = (newPage) => {
+    handlePageChange(newPage);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <Pagination
       style={{
@@ -17,7 +23,7 @@ export default function BottomPagination({
       current={currentPage}
       total={totalPage}
       pageSize={20}
-      onChange={() => handlePageChange(page + 1)}
+      onChange={onChange}
     />
   );
 }
