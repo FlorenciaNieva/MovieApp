@@ -1,5 +1,6 @@
 import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
+import { TbPlayerTrackPrevFilled, TbPlayerTrackNextFilled } from "react-icons/tb";
 
 export default function BottomPagination({
   page,
@@ -24,6 +25,8 @@ export default function BottomPagination({
       total={totalPage}
       pageSize={20}
       onChange={onChange}
+      prevIcon={<TbPlayerTrackPrevFilled />}
+      nextIcon={<TbPlayerTrackNextFilled />}
     />
   );
 }
