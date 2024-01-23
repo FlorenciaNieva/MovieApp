@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import useMovies from "../hooks/useMovies";
 import CardMovie from "./CardMovie";
 import { Flex, Heading } from "@chakra-ui/react";
-import BottomPagination from "./Pagination/BottomPagination";
+import BottomPagination from "./BottomPagination";
 
 export default function ContainPopular() {
   const { info, page, currentPage, handlePageChange, totalPage, getPopular } = useMovies();
