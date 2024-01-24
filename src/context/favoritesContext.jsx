@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 export const FavoritesContext = createContext();
@@ -6,6 +6,10 @@ export const FavoritesContext = createContext();
 const FavoritesContextProvider = ({ children }) => {
   const [allFavorites, setAllFavorites] = useState([]);
   const [getItem, saveItem] = useLocalStorage("favorites");
+
+  useEffect(() => {
+    setAllFavorites(getItem());
+  }, []);
 
   const data = {};
 
