@@ -8,20 +8,23 @@ import ContainPremieres from "./components/ContainPremieres";
 import ContainPopular from "./components/ContainPopular";
 import ContainFavorites from "./components/ContainFavorites";
 import ContaineSearch from "./components/ContainSearch";
+import FavoritesContextProvider from "./context/favoritesContext";
 
 function App() {
   return (
     <ChakraProvider>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/details/:id" element={<DetailsMovie />} />
-          <Route path="/premieres" element={<ContainPremieres />} />
-          <Route path="/popular" element={<ContainPopular />} />
-          <Route path="/favorites" element={<ContainFavorites />} />
-          <Route path="/search" element={<ContaineSearch />} />
-        </Routes>
+        <FavoritesContextProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/details/:id" element={<DetailsMovie />} />
+            <Route path="/premieres" element={<ContainPremieres />} />
+            <Route path="/popular" element={<ContainPopular />} />
+            <Route path="/favorites" element={<ContainFavorites />} />
+            <Route path="/search" element={<ContaineSearch />} />
+          </Routes>
+        </FavoritesContextProvider>
       </BrowserRouter>
     </ChakraProvider>
   );
