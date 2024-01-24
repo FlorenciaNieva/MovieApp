@@ -11,6 +11,11 @@ const FavoritesContextProvider = ({ children }) => {
     setAllFavorites(getItem());
   }, []);
 
+  function addFavorite(movie) {
+    saveItem([...allFavorites, movie]);
+    setAllFavorites([...allFavorites, movie]);
+  }
+
   const data = {};
 
   return (
