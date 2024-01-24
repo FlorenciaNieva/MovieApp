@@ -27,7 +27,12 @@ const FavoritesContextProvider = ({ children }) => {
     return allFavorites.some((movie) => movie.id === idMovie);
   }
 
-  const data = {};
+  const data = {
+    allFavorites,
+    addFavorite,
+    removeFavorite,
+    isFavorite,
+  };
 
   return (
     <FavoritesContext.Provider value={data}>
