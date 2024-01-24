@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import useMovies from "../hooks/useMovies";
 import { useParams } from "react-router";
 import {
+  AbsoluteCenter,
   Box,
   Button,
   Flex,
@@ -12,13 +13,15 @@ import {
 } from "@chakra-ui/react";
 import { FaStar } from "react-icons/fa";
 import { IoPlayCircleOutline } from "react-icons/io5";
-import { MdFavorite } from "react-icons/md";
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import ModalTrailer from "./ModalTrailer";
+import { FavoritesContext } from "../context/favoritesContext";
 
 export default function DetailsMovie() {
   const { info, getMovieId, trailer, getVideo } = useMovies();
   const params = useParams();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isFavorite, addFavorite, removeFavorite } = useContext(FavoritesContext);
 
   useEffect(() => {
     getMovieId(params.id);
@@ -95,13 +98,30 @@ export default function DetailsMovie() {
             />
             <Button
               bg="rgb(111,111,129)"
-              color="white"
               mt={4}
               ml={3}
               p={3}
+              position="absolute"
+              fontSize="30px"
               _hover={{ bg: "rgb(55,56,69)" }}
             >
-              <MdFavorite fontSize="30px" />
+              {isFavorite(info.id) ? (
+                <MdFavorite
+                  color="red"
+                  onClick={() => removeFavorite(info.id)}
+                />
+              ) : (
+                <MdFavoriteBorder
+                  color="white"
+                  onClick={() =>
+                    addFavorite({
+                      id: info.id,
+                      name: info.title,
+                      image: info.poster_path,
+                    })
+                  }
+                />
+              )}
             </Button>
           </Box>
         </Flex>
