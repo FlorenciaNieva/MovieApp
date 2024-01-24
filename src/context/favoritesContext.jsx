@@ -23,6 +23,10 @@ const FavoritesContextProvider = ({ children }) => {
     );
   }
 
+  function isFavorite(idMovie) {
+    return allFavorites.some((movie) => movie.id === idMovie);
+  }
+
   const data = {};
 
   return (
