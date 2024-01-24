@@ -5,6 +5,7 @@ export const FavoritesContext = createContext();
 
 const FavoritesContextProvider = ({ children }) => {
   const [allFavorites, setAllFavorites] = useState([]);
+  const [getItem, saveItem] = useLocalStorage("favorites");
 
   const data = {};
 
