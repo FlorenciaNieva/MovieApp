@@ -4,10 +4,12 @@ import {
   InputLeftElement,
   Container,
   Flex,
+  Heading,
 } from "@chakra-ui/react";
 import { FiSearch } from "react-icons/fi";
 import useMovies from "../hooks/useMovies";
 import CardMovie from "./CardMovie";
+import { GrSearchAdvanced } from "react-icons/gr";
 
 export default function ContainSearch() {
   const { info, searchMovie } = useMovies();
@@ -29,16 +31,23 @@ export default function ContainSearch() {
           />
         </InputGroup>
       </Container>
-      <Flex flexWrap="wrap" justifyContent="center">
-        {info.map((movie) => (
-          <CardMovie
-            key={movie.id}
-            id={movie.id}
-            name={movie.title}
-            poster={movie.poster_path}
-          />
-        ))}
-      </Flex>
+      {info.length === 0 ? (
+        <Flex h="80vh" justifyContent="center" alignItems="center">
+          <Heading color="#93959C" mr={2}>Enter a search term</Heading>
+          <GrSearchAdvanced color="#93959C" fontSize="3rem" />
+        </Flex>
+      ) : (
+        <Flex flexWrap="wrap" justifyContent="center">
+          {info.map((movie) => (
+            <CardMovie
+              key={movie.id}
+              id={movie.id}
+              name={movie.title}
+              poster={movie.poster_path}
+            />
+          ))}
+        </Flex>
+      )}
     </>
   );
 }
