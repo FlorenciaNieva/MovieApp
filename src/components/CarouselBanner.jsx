@@ -7,7 +7,7 @@ import { Image, Box, Heading, Text, Button } from "@chakra-ui/react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { useNavigate } from "react-router";
 
-export default function Carousel() {
+export default function CarouselBanner() {
   const { info, page, getNewMovies } = useMovies();
   const navigate = useNavigate();
 

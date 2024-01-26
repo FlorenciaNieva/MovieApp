@@ -1,5 +1,5 @@
 import React from 'react'
-import Carousel from './Carousel'
+import CarouselBanner from './CarouselBanner'
 import { Box } from '@chakra-ui/react';
 import CarouselCards from './CarouselCards';
 import Footer from './Footer';
@@ -7,7 +7,7 @@ import Footer from './Footer';
 export default function Home() {
   return (
     <>
-      <Carousel />
+      <CarouselBanner />
       <Box position="relative" top="90vh">
         <CarouselCards title="Popular Movies" category="popular"/>
         <CarouselCards title="Top Ranking Movies" category="top_rated"/>
