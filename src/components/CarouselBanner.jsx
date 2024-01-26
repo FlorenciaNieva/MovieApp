@@ -7,7 +7,7 @@ import { Image, Box, Heading, Text, Button } from "@chakra-ui/react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { useNavigate } from "react-router";
 
-export default function Carousel() {
+export default function CarouselBanner() {
   const { info, page, getNewMovies } = useMovies();
   const navigate = useNavigate();
 
@@ -52,7 +52,7 @@ export default function Carousel() {
   };
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 1000,
     slidesToShow: 1,
@@ -66,14 +66,14 @@ export default function Carousel() {
   return (
     <Slider
       {...settings}
-      style={{ width: "100vw", color: "white", position: "absolute", top: "0" }}
+      style={{ maxWidth: "100%", color: "white", position: "absolute", top: "0" }}
     >
       {info.map((movie) => (
         <Box key={movie.id}>
           <Image
             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
             alt="image"
-            maxH="94vh"
+            maxH="98vh"
             w="100%"
             position="relative"
           />
