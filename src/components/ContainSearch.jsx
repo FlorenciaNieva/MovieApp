@@ -10,6 +10,7 @@ import { FiSearch } from "react-icons/fi";
 import useMovies from "../hooks/useMovies";
 import CardMovie from "./CardMovie";
 import { GrSearchAdvanced } from "react-icons/gr";
+import Footer from "./Footer";
 
 export default function ContainSearch() {
   const { info, searchMovie } = useMovies();
@@ -32,7 +33,7 @@ export default function ContainSearch() {
         </InputGroup>
       </Container>
       {info.length === 0 ? (
-        <Flex h="80vh" justifyContent="center" alignItems="center">
+        <Flex h="85vh" justifyContent="center" alignItems="center">
           <Heading color="#93959C" mr={2}>Enter a search term</Heading>
           <GrSearchAdvanced color="#93959C" fontSize="3rem" />
         </Flex>
@@ -48,6 +49,7 @@ export default function ContainSearch() {
           ))}
         </Flex>
       )}
+      <Footer position="absolute" bottom="-15vh" />
     </>
   );
 }
