@@ -13,7 +13,6 @@ export default function CardMovie({ id, name, poster }) {
       <Box m={5} maxW="160px" cursor="pointer" key={id} onClick={() => navigate(`/details/${id}`)}>
         <Card
           maxW="100%"
-          h="250px"
           borderRadius="10px"
           mb={2}
           position="relative"
