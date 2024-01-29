@@ -9,6 +9,7 @@ import ContainPopular from "./components/ContainPopular";
 import ContainFavorites from "./components/ContainFavorites";
 import ContaineSearch from "./components/ContainSearch";
 import FavoritesContextProvider from "./context/favoritesContext";
+import Error404 from "./components/Error404";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/popular" element={<ContainPopular />} />
             <Route path="/favorites" element={<ContainFavorites />} />
             <Route path="/search" element={<ContaineSearch />} />
+            <Route path="/*" element={<Error404 />} />
           </Routes>
         </FavoritesContextProvider>
       </BrowserRouter>
