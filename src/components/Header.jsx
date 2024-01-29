@@ -1,6 +1,10 @@
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex, Heading, Spacer, useMediaQuery } from "@chakra-ui/react";
+import Menu from "./Menu";
+import NavBar from "./NavBar";
 
 export default function Header() {
+  const [isSmallerThan480] = useMediaQuery("(max-width: 480px)");
+
   return (
     <header style={{ position: "relative", zIndex: "1" }}>
       <Flex
@@ -11,6 +15,14 @@ export default function Header() {
         <Heading size="lg" color="#ff2323" mt="2" ml="5">
           MovieApp
         </Heading>
+        {isSmallerThan480 ? (
+          <>
+            <Spacer /> 
+            <Menu />
+          </>
+        ) : (
+        <NavBar />
+        )}
       </Flex>
     </header>
   );
