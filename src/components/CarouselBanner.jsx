@@ -1,20 +1,12 @@
-import React, { useEffect } from "react";
 import Slider from "react-slick";
 import "../../node_modules/slick-carousel/slick/slick.css";
 import "../../node_modules/slick-carousel/slick/slick-theme.css";
-import useMovies from "../hooks/useMovies";
 import { Image, Box, Heading, Text, Button, useMediaQuery } from "@chakra-ui/react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { useNavigate } from "react-router";
 
-export default function CarouselBanner() {
-  const { info, page, getNewMovies } = useMovies();
+export default function CarouselBanner({ info }) {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    getNewMovies(page);
-  }, []);
-
   const [isSmaller] = useMediaQuery("(max-width: 320px)");
   const [isTablet] = useMediaQuery("(max-width: 780px)");
 
