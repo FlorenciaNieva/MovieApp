@@ -15,7 +15,7 @@ export default function ContainPopular() {
   return (
     <>
       <Heading textAlign="center">Popular Movies</Heading>
-      <Flex flexWrap="wrap" justifyContent="center">
+      <Flex flexWrap="wrap" justifyContent="center" minH="78vh">
         {info.map((movie) => (
           <CardMovie
             id={movie.id}
