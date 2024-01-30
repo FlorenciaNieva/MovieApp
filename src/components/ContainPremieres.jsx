@@ -18,6 +18,7 @@ export default function ContainPremieres() {
       <Flex flexWrap="wrap" justifyContent="center" minH="78vh">
         {info.map((movie) => (
           <CardMovie
+            key={movie.id}
             id={movie.id}
             name={movie.title}
             poster={movie.poster_path}
