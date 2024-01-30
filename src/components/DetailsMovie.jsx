@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import useMovies from "../hooks/useMovies";
 import { useParams } from "react-router";
 import {
-  AbsoluteCenter,
   Box,
   Button,
   Flex,
@@ -10,6 +9,7 @@ import {
   Image,
   Text,
   useDisclosure,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { FaStar } from "react-icons/fa";
 import { IoPlayCircleOutline } from "react-icons/io5";
@@ -22,6 +22,9 @@ export default function DetailsMovie() {
   const params = useParams();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { isFavorite, addFavorite, removeFavorite } = useContext(FavoritesContext);
+
+  const [isMobile] = useMediaQuery("(max-width: 480px)");
+  const [isTablet] = useMediaQuery("(max-width: 720px)");
 
   useEffect(() => {
     getMovieId(params.id);
@@ -43,7 +46,11 @@ export default function DetailsMovie() {
     <>
       <Box position="absolute" top={0}>
         <Image
-          src={`https://image.tmdb.org/t/p/original${info.backdrop_path}`}
+          src={
+            isMobile
+              ? `https://image.tmdb.org/t/p/original${info.poster_path}`
+              : `https://image.tmdb.org/t/p/original${info.backdrop_path}`
+          }
           alt={info.title}
           w="100vw"
           h="100vh"
@@ -51,12 +58,18 @@ export default function DetailsMovie() {
           brightness="40%"
         />
       </Box>
-      <Box boxSize="sm" position="absolute" top="25vh" left="5vw" color="white">
+      <Box
+        position="absolute"
+        top={isTablet ? "10vh" : "25vh"}
+        left="5vw"
+        color="white"
+      >
         <Flex w="90vw" h="60vh">
           <Image
             src={`https://image.tmdb.org/t/p/original${info.poster_path}`}
             alt="Dan Abramov"
-            w={250}
+            w={isMobile ? "0" : "60%"}
+            h={isTablet ? "60%" : "100%"}
             borderRadius={5}
           />
           <Box ml={5}>
