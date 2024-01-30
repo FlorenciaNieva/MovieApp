@@ -1,7 +1,6 @@
-import React from 'react'
-import CarouselBanner from './CarouselBanner'
-import { Box } from '@chakra-ui/react';
-import CarouselCards from './CarouselCards';
+import CarouselBanner from './CarouselBanner';
+import { Box, Heading } from '@chakra-ui/react';
+import ContainCarouselCards from './ContainCarouselCards';
 import Footer from './Footer';
 
 export default function Home() {
@@ -9,8 +8,10 @@ export default function Home() {
     <>
       <CarouselBanner />
       <Box position="relative" top="90vh">
-        <CarouselCards title="Popular Movies" category="popular"/>
-        <CarouselCards title="Top Ranking Movies" category="top_rated"/>
+        <Heading as='h3' size='lg' pl={5}>Popular Movies</Heading> 
+        <ContainCarouselCards category="popular"/>
+        <Heading as='h3' size='lg' pl={5}>Top Ranking Movies</Heading>
+        <ContainCarouselCards category="top_rated"/>
       </Box>
       <Footer position="relative" bottom="-90vh" />
     </>
