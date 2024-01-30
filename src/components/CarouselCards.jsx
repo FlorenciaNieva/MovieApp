@@ -40,25 +40,33 @@ export default function CarouselCards({ title, category }) {
           desktop: {
             breakpoint: {
               max: 3000,
-              min: 1024,
+              min: 1280,
             },
-            items: 6,
+            items: 8,
             partialVisibilityGutter: 1,
+          },
+          laptop: {
+            breakpoint: {
+              max: 1280,
+              min: 720,
+            },
+            items: 5,
+            partialVisibilityGutter: 30,
+          },
+          tablet: {
+            breakpoint: {
+              max: 720,
+              min: 464,
+            },
+            items: 4,
+            partialVisibilityGutter: 30,
           },
           mobile: {
             breakpoint: {
               max: 464,
               min: 0,
             },
-            items: 1,
-            partialVisibilityGutter: 30,
-          },
-          tablet: {
-            breakpoint: {
-              max: 1024,
-              min: 464,
-            },
-            items: 4,
+            items: 3,
             partialVisibilityGutter: 30,
           },
         }}
