@@ -15,8 +15,8 @@ export default function CarouselBanner() {
     getNewMovies(page);
   }, []);
 
-  const [isSmaller] = useMediaQuery("(max-width: 350px)");
-  const [isTablet] = useMediaQuery("(max-width: 768px)");
+  const [isSmaller] = useMediaQuery("(max-width: 320px)");
+  const [isTablet] = useMediaQuery("(max-width: 780px)");
 
   const CustomPrevArrow = (props) => {
     const { onClick } = props;
@@ -76,7 +76,7 @@ export default function CarouselBanner() {
           <Image
             src={!isTablet ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}` : `https://image.tmdb.org/t/p/original${movie.poster_path}`}
             alt="image"
-            maxH="100vh"
+            h="95vh"
             w="100%"
             position="relative"
           />
@@ -85,15 +85,15 @@ export default function CarouselBanner() {
             top={0}
             w="50rem"
             height="99%"
-            bgGradient="linear(to-r, rgba(0, 0, 0, 0.8) 10%, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0) 100%)"
+            bgGradient={isSmaller ? "none" :"linear(to-r, rgba(0, 0, 0, 0.8) 10%, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0) 100%)"}
           >
-            <Box position="absolute" top={0} pt={40} pl="45px" w="70vw">
+            <Box position="absolute" bottom={ isSmaller ? "0vh" : "10vh" } pl="45px" pb={5} maxW="70vw">
               {isSmaller ? (
-                  <Heading as="h2" size="xl" pb={3}>{movie.title}</Heading>
+                <></>
               ) : isTablet ? (
                 <>
                   <Heading as="h2" size="xl" noOfLines={2} overflow="hidden" textOverflow="ellipsis" pb={2}>{movie.title}</Heading>
-                  <Text noOfLines={8} overflow="hidden" textOverflow="ellipsis" pb={1}>{movie.overview}</Text>
+                  <Text noOfLines={6} overflow="hidden" textOverflow="ellipsis" pb={1}>{movie.overview}</Text>
                 </>
               ) : (
                 <>
@@ -101,7 +101,6 @@ export default function CarouselBanner() {
                   <Text pb={3}>{movie.overview}</Text>
                 </>
               )}
-              
               <Button bg="#f90909" color="white" onClick={() => navigate(`/details/${movie.id}`)}>
                 See more
               </Button>
