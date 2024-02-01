@@ -18,9 +18,7 @@ const FavoritesContextProvider = ({ children }) => {
 
   function removeFavorite(idMovie) {
     saveItem(allFavorites.filter((movie) => movie.id !== idMovie));
-    setAllFavorites(
-      allFavorites.filter((movie) => movie.id !== idMovie)
-    );
+    setAllFavorites(allFavorites.filter((movie) => movie.id !== idMovie));
   }
 
   function isFavorite(idMovie) {
