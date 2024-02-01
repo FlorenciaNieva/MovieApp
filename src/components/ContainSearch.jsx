@@ -34,7 +34,9 @@ export default function ContainSearch() {
       </Container>
       {info.length === 0 ? (
         <Flex h="85vh" justifyContent="center" alignItems="center">
-          <Heading color="#93959C" mr={2}>Enter a search term</Heading>
+          <Heading color="#93959C" mr={2}>
+            Enter a search term
+          </Heading>
           <GrSearchAdvanced color="#93959C" fontSize="3rem" />
         </Flex>
       ) : (
