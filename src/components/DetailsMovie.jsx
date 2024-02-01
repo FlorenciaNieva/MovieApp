@@ -36,7 +36,7 @@ export default function DetailsMovie() {
     const minutosRestantes = min % 60;
 
     return `${horas}hs ${minutosRestantes}min`;
-  };
+  }
 
   const handleButtonTrailer = () => {
     onOpen();
