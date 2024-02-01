@@ -20,12 +20,7 @@ export default function CardMovie({ id, name, poster }) {
         key={id} 
         onClick={() => navigate(`/details/${id}`)}
       >
-        <Card
-          maxW="100%"
-          borderRadius="10px"
-          mb={2}
-          position="relative"
-        >
+        <Card maxW="100%" borderRadius="10px" mb={2} position="relative">
           <Box
             mt={4}
             ml={3}
@@ -36,24 +31,24 @@ export default function CardMovie({ id, name, poster }) {
             fontSize="30px"
           >
             {isFavorite(id) ? (
-              <MdFavorite color="red" onClick={(e) => {
-                e.stopPropagation();
-                removeFavorite(id);
-              }} />
+              <MdFavorite
+                color="red"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  removeFavorite(id);
+                }}
+              />
             ) : (
               <MdFavoriteBorder
                 color="white"
-                onClick={(e) =>
-                  {
-                    e.stopPropagation();
-                    addFavorite({
-                      id,
-                      name,
-                      image: poster,
-                    });
-                  }
-                  
-                }
+                onClick={(e) => {
+                  e.stopPropagation();
+                  addFavorite({
+                    id,
+                    name,
+                    image: poster,
+                  });
+                }}
               />
             )}
           </Box>
@@ -65,15 +60,15 @@ export default function CardMovie({ id, name, poster }) {
             borderRadius="10px"
           />
         </Card>
-        <Text 
+        <Text
           textAlign="center"
           as="b"
           overflow="hidden"
           display="-webkit-box"
           style={{
             WebkitLineClamp: 1,
-            WebkitBoxOrient: 'vertical',
-            textOverflow: 'ellipsis',
+            WebkitBoxOrient: "vertical",
+            textOverflow: "ellipsis",
           }}
         >
           {name}
