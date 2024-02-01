@@ -4,8 +4,8 @@ import {
   ModalContent,
   ModalBody,
   ModalCloseButton,
-} from '@chakra-ui/react';
-import YouTube from 'react-youtube';
+} from "@chakra-ui/react";
+import YouTube from "react-youtube";
 
 export default function ModalTrailer({ isOpen, onClose, trailerId }) {
   return (
@@ -14,9 +14,9 @@ export default function ModalTrailer({ isOpen, onClose, trailerId }) {
         <ModalOverlay />
         <ModalContent>
           <ModalCloseButton color="white" />
-          <ModalBody bg="black" >
+          <ModalBody bg="black">
             <YouTube
-              style={{ height: "80vh"}}
+              style={{ height: "80vh" }}
               videoId={trailerId}
               opts={{
                 width: "100%",
