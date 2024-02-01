@@ -13,7 +13,9 @@ export default function ContainFavorites() {
       <Heading textAlign="center">Favorites</Heading>
       {allFavorites.length === 0 ? (
         <Flex h="90vh" justifyContent="center" alignItems="center">
-          <Heading color="#93959C" mr={2}>Add Favorites</Heading>
+          <Heading color="#93959C" mr={2}>
+            Add Favorites
+          </Heading>
           <RiHeartAddFill color="#93959C" fontSize="3rem" />
         </Flex>
       ) : (
@@ -25,5 +27,5 @@ export default function ContainFavorites() {
       )}
       <Footer position="absolute" bottom="-12vh" />
     </>
-  )
+  );
 }
