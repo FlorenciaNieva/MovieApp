@@ -1,14 +1,15 @@
 import Pagination from "rc-pagination";
 import "rc-pagination/assets/index.css";
-import { TbPlayerTrackPrevFilled, TbPlayerTrackNextFilled } from "react-icons/tb";
+import {
+  TbPlayerTrackPrevFilled,
+  TbPlayerTrackNextFilled,
+} from "react-icons/tb";
 
 export default function BottomPagination({
-  page,
   currentPage,
   totalPage,
   handlePageChange,
 }) {
-  
   const onChange = (newPage) => {
     handlePageChange(newPage);
     window.scrollTo(0, 0);
