@@ -17,11 +17,11 @@ export default function Header() {
         </Heading>
         {isSmallerThan480 ? (
           <>
-            <Spacer /> 
+            <Spacer />
             <Menu />
           </>
         ) : (
-        <NavBar />
+          <NavBar />
         )}
       </Flex>
     </header>
