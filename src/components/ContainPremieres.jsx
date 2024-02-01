@@ -6,7 +6,14 @@ import BottomPagination from "./BottomPagination";
 import Footer from "./Footer";
 
 export default function ContainPremieres() {
-  const { info, page, currentPage, handlePageChange, totalPage, getNewMovies } = useMovies();
+  const { 
+    info, 
+    page, 
+    currentPage, 
+    handlePageChange, 
+    totalPage, 
+    getNewMovies 
+  } = useMovies();
 
   useEffect(() => {
     getNewMovies(page);
@@ -25,7 +32,12 @@ export default function ContainPremieres() {
           />
         ))}
       </Flex>
-      <BottomPagination currentPage={currentPage} totalPage={totalPage} handlePageChange={handlePageChange} page={page} />
+      <BottomPagination
+        currentPage={currentPage}
+        totalPage={totalPage}
+        handlePageChange={handlePageChange}
+        page={page}
+      />
       <Footer position="relative" bottom="0" />
     </>
   );

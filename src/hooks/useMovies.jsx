@@ -24,14 +24,14 @@ const useMovies = () => {
     try {
       const response = await axios(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${page}`);
       setInfo(response.data.results);
-        setTotalPage(response.data.total_results);
-        setCurrentPage(response.data.page);
+      setTotalPage(response.data.total_results);
+      setCurrentPage(response.data.page);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handlePageChange = (newPage) =>{
+  const handlePageChange = (newPage) => {
     setPage(newPage);
   };
 
@@ -94,4 +94,3 @@ const useMovies = () => {
 };
 
 export default useMovies;
-
