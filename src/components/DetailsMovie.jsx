@@ -67,7 +67,7 @@ export default function DetailsMovie() {
         <Flex w="90vw" h="60vh">
           <Image
             src={`https://image.tmdb.org/t/p/original${info.poster_path}`}
-            alt="Dan Abramov"
+            alt={info.title}
             w={isMobile ? "0" : "60%"}
             h={isTablet ? "60%" : "100%"}
             borderRadius={5}
@@ -84,7 +84,7 @@ export default function DetailsMovie() {
               {new Date(info.release_date).getFullYear()}
             </Heading>
             {info.genres?.map((gen) => (
-              <Text as="b" mr={3} color="RGB(217 218 222)">
+              <Text as="b" key={gen.name} mr={3} color="RGB(217 218 222)">
                 {gen.name}
               </Text>
             ))}
