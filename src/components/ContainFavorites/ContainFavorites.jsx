@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { FavoritesContext } from "../context/favoritesContext";
+import { FavoritesContext } from "../../context/favoritesContext";
 import { Flex, Heading } from "@chakra-ui/react";
-import CardMovie from "./CardMovie";
+import CardMovie from "../CardMovie/CardMovie";
 import { RiHeartAddFill } from "react-icons/ri";
-import Footer from "./Footer";
+import Footer from "../Footer/Footer";
 
 export default function ContainFavorites() {
   const { allFavorites } = useContext(FavoritesContext);

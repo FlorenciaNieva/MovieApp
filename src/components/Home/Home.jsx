@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import CarouselBanner from "./CarouselBanner";
+import CarouselBanner from "../CarouselBanner/CarouselBanner";
 import { Box, Heading } from "@chakra-ui/react";
-import ContainCarouselCards from "./ContainCarouselCards";
-import Footer from "./Footer";
-import useMovies from "../hooks/useMovies";
+import ContainCarouselCards from "../ContainCarouselCards/ContainCarouselCards";
+import Footer from "../Footer/Footer";
+import useMovies from "../../hooks/useMovies";
 
 export default function Home() {
   const { info, page, getNewMovies } = useMovies();

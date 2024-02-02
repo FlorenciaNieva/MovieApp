@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { Card, Image, Box, Text, useMediaQuery } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
-import { FavoritesContext } from "../context/favoritesContext";
-import notAvailableImage from "../assets/images/image_not_available.png"
+import { FavoritesContext } from "../../context/favoritesContext";
+import notAvailableImage from "../../assets/images/image_not_available.png"
 
 export default function CardMovie({ id, name, poster }) {
   const navigate = useNavigate();
