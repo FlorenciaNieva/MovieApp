@@ -51,7 +51,7 @@ export default function DetailsMovie() {
           src={
             isMobile && info.poster_path
               ? `https://image.tmdb.org/t/p/original${info.poster_path}`
-              : info.backdrop_path 
+              : info.backdrop_path
               ? `https://image.tmdb.org/t/p/original${info.backdrop_path}`
               : grayImage
           }
@@ -71,9 +71,9 @@ export default function DetailsMovie() {
         <Flex w="90vw" h="60vh">
           <Image
             src={
-              info.poster_path 
-              ? `https://image.tmdb.org/t/p/original${info.poster_path}` 
-              : notAvailableImage
+              info.poster_path
+                ? `https://image.tmdb.org/t/p/original${info.poster_path}`
+                : notAvailableImage
             }
             alt={info.title}
             w={isMobile ? "0" : "60%"}
@@ -89,7 +89,9 @@ export default function DetailsMovie() {
             </Flex>
             <Heading mb={3}>{info.title}</Heading>
             <Heading as="h5" size="sm">
-              {new Date(info.release_date).getFullYear()}
+              {info.release_date
+                ? new Date(info.release_date).getFullYear()
+                : ""}
             </Heading>
             {info.genres?.map((gen) => (
               <Text as="b" key={gen.name} mr={3} color="RGB(217 218 222)">
