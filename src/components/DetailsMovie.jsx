@@ -16,6 +16,8 @@ import { IoPlayCircleOutline } from "react-icons/io5";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import ModalTrailer from "./ModalTrailer";
 import { FavoritesContext } from "../context/favoritesContext";
+import grayImage from '../assets/images/background_gray.jpg';
+import notAvailableImage from "../assets/images/image_not_available.png"
 
 export default function DetailsMovie() {
   const { info, getMovieId, trailer, getVideo } = useMovies();
@@ -47,9 +49,11 @@ export default function DetailsMovie() {
       <Box position="absolute" top={0}>
         <Image
           src={
-            isMobile
+            isMobile && info.poster_path
               ? `https://image.tmdb.org/t/p/original${info.poster_path}`
-              : `https://image.tmdb.org/t/p/original${info.backdrop_path}`
+              : info.backdrop_path 
+              ? `https://image.tmdb.org/t/p/original${info.backdrop_path}`
+              : grayImage
           }
           alt={info.title}
           w="100vw"
@@ -66,7 +70,11 @@ export default function DetailsMovie() {
       >
         <Flex w="90vw" h="60vh">
           <Image
-            src={`https://image.tmdb.org/t/p/original${info.poster_path}`}
+            src={
+              info.poster_path 
+              ? `https://image.tmdb.org/t/p/original${info.poster_path}` 
+              : notAvailableImage
+            }
             alt={info.title}
             w={isMobile ? "0" : "60%"}
             h={isTablet ? "60%" : "100%"}

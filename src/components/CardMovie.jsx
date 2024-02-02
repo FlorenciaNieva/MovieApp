@@ -3,6 +3,7 @@ import { Card, Image, Box, Text, useMediaQuery } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { FavoritesContext } from "../context/favoritesContext";
+import notAvailableImage from "../assets/images/image_not_available.png"
 
 export default function CardMovie({ id, name, poster }) {
   const navigate = useNavigate();
@@ -53,7 +54,10 @@ export default function CardMovie({ id, name, poster }) {
             )}
           </Box>
           <Image
-            src={`https://image.tmdb.org/t/p/original${poster}`}
+            src={ poster 
+              ? `https://image.tmdb.org/t/p/original${poster}`
+              : notAvailableImage
+            }
             alt={name}
             w="100%"
             h="100%"
