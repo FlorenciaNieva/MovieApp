@@ -19,7 +19,7 @@ export default function ContainFavorites() {
       ) : (
         <Flex flexWrap="wrap" justifyContent="center" minH="85vh">
           {allFavorites.map((movie) => (
-            <CardMovie id={movie.id} name={movie.name} poster={movie.image} />
+            <CardMovie  key={movie.id} id={movie.id} name={movie.name} poster={movie.image} />
           ))}
         </Flex>
       )}
