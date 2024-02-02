@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import useMovies from "../hooks/useMovies";
-import CardMovie from "./CardMovie";
+import useMovies from "../../hooks/useMovies";
+import CardMovie from "../CardMovie/CardMovie";
 import { Flex, Heading } from "@chakra-ui/react";
-import BottomPagination from "./BottomPagination";
-import Footer from "./Footer";
+import BottomPagination from "../Pagination/BottomPagination";
+import Footer from "../Footer/Footer";
 
 export default function ContainPopular() {
   const { 

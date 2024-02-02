@@ -7,10 +7,10 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import { FiSearch } from "react-icons/fi";
-import useMovies from "../hooks/useMovies";
-import CardMovie from "./CardMovie";
+import useMovies from "../../hooks/useMovies";
+import CardMovie from "../CardMovie/CardMovie";
 import { GrSearchAdvanced } from "react-icons/gr";
-import Footer from "./Footer";
+import Footer from "../Footer/Footer";
 
 export default function ContainSearch() {
   const { info, searchMovie } = useMovies();

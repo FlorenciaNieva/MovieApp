@@ -1,6 +1,6 @@
 import { Flex, Heading, Spacer, useMediaQuery } from "@chakra-ui/react";
-import Menu from "./Menu";
-import NavBar from "./NavBar";
+import Menu from "../Menu/Menu";
+import NavBar from "../NavBar/NavBar";
 
 export default function Header() {
   const [isSmallerThan480] = useMediaQuery("(max-width: 480px)");

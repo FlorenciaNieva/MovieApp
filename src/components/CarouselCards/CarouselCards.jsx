@@ -1,6 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import CardMovie from "./CardMovie";
+import CardMovie from "../CardMovie/CardMovie";
 
 export default function CarouselCards({ info }) {
   return (

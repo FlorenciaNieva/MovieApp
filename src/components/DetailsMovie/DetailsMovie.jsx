@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import useMovies from "../hooks/useMovies";
+import useMovies from "../../hooks/useMovies";
 import { useParams } from "react-router";
 import {
   Box,
@@ -14,10 +14,10 @@ import {
 import { FaStar } from "react-icons/fa";
 import { IoPlayCircleOutline } from "react-icons/io5";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
-import ModalTrailer from "./ModalTrailer";
-import { FavoritesContext } from "../context/favoritesContext";
-import grayImage from '../assets/images/background_gray.jpg';
-import notAvailableImage from "../assets/images/image_not_available.png"
+import ModalTrailer from "../ModalTrailer/ModalTrailer";
+import { FavoritesContext } from "../../context/favoritesContext";
+import grayImage from '../../assets/images/background_gray.jpg';
+import notAvailableImage from "../../assets/images/image_not_available.png"
 
 export default function DetailsMovie() {
   const { info, getMovieId, trailer, getVideo } = useMovies();
