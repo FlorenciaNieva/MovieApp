@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import CarouselBanner from "../CarouselBanner/CarouselBanner";
 import { Box, Heading } from "@chakra-ui/react";
 import ContainCarouselCards from "../ContainCarouselCards/ContainCarouselCards";
