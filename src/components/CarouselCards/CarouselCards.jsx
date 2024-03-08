@@ -14,7 +14,7 @@ export default function CarouselCards({ title, category }) {
 
   return (
     <>
-      <Heading as="h3" size="lg" pl={5}>
+      <Heading as="h3" size="lg" pt="20px" pl="20px">
         {title}
       </Heading>
       <Carousel
@@ -52,14 +52,14 @@ export default function CarouselCards({ title, category }) {
           tablet: {
             breakpoint: {
               max: 720,
-              min: 464,
+              min: 550,
             },
             items: 4,
             partialVisibilityGutter: 30,
           },
           mobile: {
             breakpoint: {
-              max: 464,
+              max: 550,
               min: 0,
             },
             items: 3,
