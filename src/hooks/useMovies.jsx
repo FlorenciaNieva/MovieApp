@@ -24,15 +24,6 @@ const useMovies = () => {
     setPage(newPage);
   };
 
-  const getTopRated = async () => {
-    try {
-      const response = await axios(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`);
-      setInfo(response.data.results);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   const getMovieId = async (id) => {
     try {
       const response = await axios(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`);
@@ -73,7 +64,6 @@ const useMovies = () => {
     totalPage,
     handlePageChange,
     getMovies,
-    getTopRated,
     getMovieId,
     trailer,
     getVideo,
