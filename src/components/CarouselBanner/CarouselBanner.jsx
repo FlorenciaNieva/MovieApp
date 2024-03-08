@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import useMovies from "../../hooks/useMovies";
+import { useNavigate } from "react-router";
 import Slider from "react-slick";
 import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
@@ -10,12 +13,16 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
-import { useNavigate } from "react-router";
 
-export default function CarouselBanner({ info }) {
+export default function CarouselBanner() {
+  const { info, page, getNewMovies } = useMovies();
   const navigate = useNavigate();
   const [isSmaller] = useMediaQuery("(max-width: 320px)");
   const [isTablet] = useMediaQuery("(max-width: 780px)");
+
+  useEffect(() => {
+    getNewMovies(page);
+  }, []);
 
   const CustomPrevArrow = (props) => {
     const { onClick } = props;
