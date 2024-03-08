@@ -6,21 +6,11 @@ import CardMovie from "../CardMovie/CardMovie";
 import useMovies from "../../hooks/useMovies";
 
 export default function CarouselCards({ title, category }) {
-  const { info, page, getPopular, getTopRated } = useMovies();
+  const { info, page, getMovies } = useMovies();
 
-  const data = () => {
-    if (category === "popular") {
-      useEffect(() => {
-        getPopular(page);
-      }, []);
-      return info;
-    } else {
-      useEffect(() => {
-        getTopRated();
-      }, []);
-      return info;
-    }
-  };
+  useEffect(() => {
+    getMovies(page, category)
+  }, []);
 
   return (
     <>
@@ -84,7 +74,7 @@ export default function CarouselCards({ title, category }) {
         slidesToSlide={1}
         swipeable
       >
-        {data().map((movie) => (
+        {info.map((movie) => (
           <CardMovie
             key={movie.id}
             id={movie.id}
