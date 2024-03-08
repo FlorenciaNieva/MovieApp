@@ -12,12 +12,13 @@ export default function Footer({ position, bottom }) {
         alignItems="center"
         bg="black"
       >
-        <Box>
+        <Box textAlign="center">
           <Heading size="lg" color="#ff2323">
             MovieApp
           </Heading>
-          <Text textAlign="center" color="white" mt={2}>
-            Hecho con ♥ por Flor
+          <Text color="white" mt={2}>
+            Hecho con ♥ por {" "}
+            <a href="https://www.linkedin.com/in/florencia-nievaa/">Florencia Nieva</a>
           </Text>
         </Box>
       </Flex>

@@ -9,14 +9,13 @@ export default function CardMovie({ id, name, poster }) {
   const navigate = useNavigate();
   const { isFavorite, addFavorite, removeFavorite } = useContext(FavoritesContext);
 
-  const [isMobile] = useMediaQuery("(max-width: 464px)");
   const [isTablet] = useMediaQuery("(max-width: 720px)");
 
   return (
     <>
       <Box 
         m={5} 
-        maxW={isMobile ? "80px" : isTablet ? "120px" : "160px"} 
+        maxW={isTablet ? "120px" : "160px"} 
         cursor="pointer" 
         key={id} 
         onClick={() => navigate(`/details/${id}`)}

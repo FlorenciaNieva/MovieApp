@@ -5,23 +5,23 @@ import { Flex, Heading } from "@chakra-ui/react";
 import BottomPagination from "../Pagination/BottomPagination";
 import Footer from "../Footer/Footer";
 
-export default function ContainPremieres() {
+export default function ContainMoviesView({title, category}) {
   const { 
-    info, 
+    info,
     page, 
     currentPage, 
-    handlePageChange, 
+    handlePageChange,
     totalPage, 
-    getNewMovies 
+    getMovies
   } = useMovies();
 
   useEffect(() => {
-    getNewMovies(page);
+    getMovies(page, category);
   }, [page]);
 
   return (
     <>
-      <Heading textAlign="center">Premieres Movies</Heading>
+      <Heading textAlign="center">{title}</Heading>
       <Flex flexWrap="wrap" justifyContent="center" minH="78vh">
         {info.map((movie) => (
           <CardMovie
