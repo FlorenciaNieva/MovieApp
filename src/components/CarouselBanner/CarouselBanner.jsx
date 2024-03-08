@@ -14,14 +14,14 @@ import {
 } from "@chakra-ui/react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
-export default function CarouselBanner() {
-  const { info, page, getNewMovies } = useMovies();
+export default function CarouselBanner({ category }) {
+  const { info, page, getMovies } = useMovies();
   const navigate = useNavigate();
   const [isSmaller] = useMediaQuery("(max-width: 320px)");
   const [isTablet] = useMediaQuery("(max-width: 780px)");
 
   useEffect(() => {
-    getNewMovies(page);
+    getMovies(page, category);
   }, []);
 
   const CustomPrevArrow = (props) => {
