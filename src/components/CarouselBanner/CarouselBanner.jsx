@@ -147,6 +147,7 @@ export default function CarouselBanner({ category }) {
               <Button
                 bg="#f90909"
                 color="white"
+                _hover={{ bg:"#ff2929" }}
                 onClick={() => navigate(`/details/${movie.id}`)}
               >
                 See more
