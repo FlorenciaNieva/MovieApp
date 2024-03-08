@@ -6,7 +6,7 @@ import Footer from "../Footer/Footer";
 export default function Home() {
   return (
     <>
-      <CarouselBanner />
+      <CarouselBanner category="now_playing" />
       <Box position="relative" top="90vh">
         <CarouselCards title="Popular Movies" category="popular" />
         <CarouselCards title="Top Ranking Movies" category="top_rated" />
