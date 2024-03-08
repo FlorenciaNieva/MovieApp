@@ -91,7 +91,7 @@ export default function CarouselBanner({ category }) {
                 : `https://image.tmdb.org/t/p/original${movie.poster_path}`
             }
             alt="image"
-            h="95vh"
+            h="100vh"
             w="100%"
             position="relative"
           />
@@ -99,7 +99,7 @@ export default function CarouselBanner({ category }) {
             position="absolute"
             top={0}
             w="50rem"
-            height="99%"
+            height="99.5%"
             bgGradient={
               isSmaller
                 ? "none"
