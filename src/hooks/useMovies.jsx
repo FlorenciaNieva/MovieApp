@@ -20,17 +20,6 @@ const useMovies = () => {
     }
   };
 
-  const getPopular = async (page) => {
-    try {
-      const response = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${page}`);
-      setInfo(response.data.results);
-      setTotalPage(response.data.total_results);
-      setCurrentPage(response.data.page);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   const getNewMovies = async (page) => {
     try {
       const response = await axios(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${page}`);
@@ -95,7 +84,6 @@ const useMovies = () => {
     totalPage,
     handlePageChange,
     getMovies,
-    getPopular,
     getNewMovies,
     getTopRated,
     getMovieId,
