@@ -7,11 +7,11 @@ export default function Home() {
   return (
     <>
       <CarouselBanner category="now_playing" />
-      <Box position="relative" top="90vh">
+      <Box position="relative" top="94vh">
         <CarouselCards title="Popular Movies" category="popular" />
         <CarouselCards title="Top Ranking Movies" category="top_rated" />
       </Box>
-      <Footer position="relative" bottom="-90vh" />
+      <Footer position="relative" bottom="-100vh" />
     </>
   );
 }
