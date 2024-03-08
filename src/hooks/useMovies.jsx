@@ -9,6 +9,17 @@ const useMovies = () => {
   const [trailer, setTrailer] = useState(null);
   const apiKey = import.meta.env.VITE_MOVIE_API_KEY;
 
+  const getMovies = async (page, category) => {
+    try {
+      const response = await axios(`https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&page=${page}`);
+      setInfo(response.data.results);
+      setTotalPage(response.data.total_results);
+      setCurrentPage(response.data.page);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const getPopular = async (page) => {
     try {
       const response = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${page}`);
@@ -83,6 +94,7 @@ const useMovies = () => {
     currentPage,
     totalPage,
     handlePageChange,
+    getMovies,
     getPopular,
     getNewMovies,
     getTopRated,
