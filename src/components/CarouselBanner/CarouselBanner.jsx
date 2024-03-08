@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import useMovies from "../../hooks/useMovies";
+import { useNavigate } from "react-router";
 import Slider from "react-slick";
 import "../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
@@ -10,12 +13,16 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
-import { useNavigate } from "react-router";
 
-export default function CarouselBanner({ info }) {
+export default function CarouselBanner({ category }) {
+  const { info, page, getMovies } = useMovies();
   const navigate = useNavigate();
   const [isSmaller] = useMediaQuery("(max-width: 320px)");
   const [isTablet] = useMediaQuery("(max-width: 780px)");
+
+  useEffect(() => {
+    getMovies(page, category);
+  }, []);
 
   const CustomPrevArrow = (props) => {
     const { onClick } = props;
@@ -84,7 +91,7 @@ export default function CarouselBanner({ info }) {
                 : `https://image.tmdb.org/t/p/original${movie.poster_path}`
             }
             alt="image"
-            h="95vh"
+            h="100vh"
             w="100%"
             position="relative"
           />
@@ -92,7 +99,7 @@ export default function CarouselBanner({ info }) {
             position="absolute"
             top={0}
             w="50rem"
-            height="99%"
+            height="99.5%"
             bgGradient={
               isSmaller
                 ? "none"
@@ -140,6 +147,7 @@ export default function CarouselBanner({ info }) {
               <Button
                 bg="#f90909"
                 color="white"
+                _hover={{ bg:"#ff2929" }}
                 onClick={() => navigate(`/details/${movie.id}`)}
               >
                 See more

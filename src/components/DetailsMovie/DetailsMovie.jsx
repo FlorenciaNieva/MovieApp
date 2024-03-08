@@ -16,8 +16,8 @@ import { IoPlayCircleOutline } from "react-icons/io5";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import ModalTrailer from "../ModalTrailer/ModalTrailer";
 import { FavoritesContext } from "../../context/favoritesContext";
-import grayImage from '../../assets/images/background_gray.jpg';
-import notAvailableImage from "../../assets/images/image_not_available.png"
+import grayImage from "../../assets/images/background_gray.jpg";
+import notAvailableImage from "../../assets/images/image_not_available.png";
 
 export default function DetailsMovie() {
   const { info, getMovieId, trailer, getVideo } = useMovies();
@@ -25,7 +25,7 @@ export default function DetailsMovie() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { isFavorite, addFavorite, removeFavorite } = useContext(FavoritesContext);
 
-  const [isMobile] = useMediaQuery("(max-width: 480px)");
+  const [isSmallMobile] = useMediaQuery("(max-width: 420px)");
   const [isTablet] = useMediaQuery("(max-width: 720px)");
 
   useEffect(() => {
@@ -36,7 +36,6 @@ export default function DetailsMovie() {
   function minToHs(min) {
     const horas = Math.floor(min / 60);
     const minutosRestantes = min % 60;
-
     return `${horas}hs ${minutosRestantes}min`;
   }
 
@@ -49,7 +48,7 @@ export default function DetailsMovie() {
       <Box position="absolute" top={0}>
         <Image
           src={
-            isMobile && info.poster_path
+            isSmallMobile && info.poster_path
               ? `https://image.tmdb.org/t/p/original${info.poster_path}`
               : info.backdrop_path
               ? `https://image.tmdb.org/t/p/original${info.backdrop_path}`
@@ -65,10 +64,15 @@ export default function DetailsMovie() {
       <Box
         position="absolute"
         top={isTablet ? "10vh" : "25vh"}
-        left="5vw"
+        left="5"
         color="white"
       >
-        <Flex w="90vw" h="60vh">
+        <Flex
+          w="90vw"
+          h="60vh"
+          flexDir={isTablet ? "column" : "row"}
+          alignItems={isTablet ? "center" : ""}
+        >
           <Image
             src={
               info.poster_path
@@ -76,12 +80,12 @@ export default function DetailsMovie() {
                 : notAvailableImage
             }
             alt={info.title}
-            w={isMobile ? "0" : "60%"}
+            w={isSmallMobile ? "0" : ""}
             h={isTablet ? "60%" : "100%"}
             borderRadius={5}
           />
           <Box ml={5}>
-            <Flex>
+            <Flex pt="2">
               <Text as="b">{info.vote_average?.toFixed(1)}</Text>
               <Text ml={1} mt={1}>
                 <FaStar />
@@ -102,7 +106,12 @@ export default function DetailsMovie() {
             <Heading as="h5" size="sm" mt="1">
               Overview
             </Heading>
-            <Text>{info.overview}</Text>
+            <Text
+              w="100%"
+              noOfLines={isSmallMobile ? "none" : isTablet ? "6" : "none"}
+            >
+              {info.overview}
+            </Text>
             <Button
               onClick={() => handleButtonTrailer()}
               bg="#f90909"
