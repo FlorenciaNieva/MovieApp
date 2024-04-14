@@ -3,24 +3,32 @@ import { Card, Image, Box, Text, useMediaQuery } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { FavoritesContext } from "../../context/favoritesContext";
-import notAvailableImage from "../../assets/images/image_not_available.png"
+import notAvailableImage from "../../assets/images/image_not_available.png";
 
 export default function CardMovie({ id, name, poster }) {
   const navigate = useNavigate();
-  const { isFavorite, addFavorite, removeFavorite } = useContext(FavoritesContext);
+  const { isFavorite, addFavorite, removeFavorite } =
+    useContext(FavoritesContext);
 
   const [isTablet] = useMediaQuery("(max-width: 720px)");
 
   return (
     <>
-      <Box 
-        m={5} 
-        maxW={isTablet ? "120px" : "160px"} 
-        cursor="pointer" 
-        key={id} 
+      <Box
+        m={5}
+        maxW={isTablet ? "120px" : "160px"}
+        cursor="pointer"
+        key={id}
         onClick={() => navigate(`/details/${id}`)}
       >
-        <Card maxW="100%" borderRadius="10px" mb={2} position="relative">
+        <Card
+          maxW="100%"
+          h="100%"
+          borderRadius="10px"
+          mb={2}
+          position="relative"
+          aspectRatio={3 / 4}
+        >
           <Box
             mt={4}
             ml={3}
@@ -53,14 +61,16 @@ export default function CardMovie({ id, name, poster }) {
             )}
           </Box>
           <Image
-            src={ poster 
-              ? `https://image.tmdb.org/t/p/original${poster}`
-              : notAvailableImage
+            src={
+              poster
+                ? `https://image.tmdb.org/t/p/original${poster}`
+                : notAvailableImage
             }
             alt={name}
             w="100%"
             h="100%"
             borderRadius="10px"
+            objectFit="cover"
           />
         </Card>
         <Text
