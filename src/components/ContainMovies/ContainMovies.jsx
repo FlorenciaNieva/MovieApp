@@ -17,7 +17,7 @@ export default function ContainMoviesView({title, category}) {
 
   useEffect(() => {
     getMovies(page, category);
-  }, [page]);
+  }, [page, category]);
 
   return (
     <>
