@@ -20,7 +20,7 @@ export default function BottomPagination({
       style={{
         display: "flex",
         justifyContent: "center",
-        marginBottom: "50px",
+        margin: "50px",
       }}
       current={currentPage}
       total={totalPage}

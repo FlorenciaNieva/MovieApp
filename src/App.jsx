@@ -3,7 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import DetailsMovie from "./components/DetailsMovie/DetailsMovie";
-import ContainMoviesView from "./components/ContainMoviesView/ContainMoviesView"; 
+import ContainMoviesView from "./components/ContainMovies/ContainMovies"; 
 import ContainFavorites from "./components/ContainFavorites/ContainFavorites";
 import ContaineSearch from "./components/ContainSearch/ContainSearch";
 import FavoritesContextProvider from "./context/favoritesContext";
