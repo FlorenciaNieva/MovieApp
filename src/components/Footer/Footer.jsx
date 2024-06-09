@@ -8,6 +8,7 @@ export default function Footer({ position, bottom }) {
         bottom={bottom}
         w="100%"
         h="80px"
+        py={14}
         justifyContent="center"
         alignItems="center"
         bg="black"
@@ -17,8 +18,10 @@ export default function Footer({ position, bottom }) {
             MovieApp
           </Heading>
           <Text color="white" mt={2}>
-            Hecho con ♥ por {" "}
-            <a href="https://www.linkedin.com/in/florencia-nievaa/">Florencia Nieva</a>
+            Designed and Built by{" "}
+            <a href="https://www.linkedin.com/in/florencianievaa/">
+              Florencia Nieva
+            </a>
           </Text>
         </Box>
       </Flex>

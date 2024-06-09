@@ -109,8 +109,7 @@ export default function CarouselBanner({ category }) {
             <Box
               position="absolute"
               bottom={isSmaller ? "0vh" : "10vh"}
-              pl="45px"
-              pb={5}
+              px={{ base: "40px", lg: "100px" }}
               maxW="70vw"
             >
               {isSmaller ? (
@@ -145,9 +144,10 @@ export default function CarouselBanner({ category }) {
                 </>
               )}
               <Button
+                mt={2}
                 bg="#f90909"
                 color="white"
-                _hover={{ bg:"#ff2929" }}
+                _hover={{ bg: "#ff2929" }}
                 onClick={() => navigate(`/details/${movie.id}`)}
               >
                 See more

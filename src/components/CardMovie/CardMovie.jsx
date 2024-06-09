@@ -23,7 +23,6 @@ export default function CardMovie({ id, name, poster }) {
       >
         <Card
           maxW="100%"
-          h="100%"
           borderRadius="10px"
           mb={2}
           position="relative"

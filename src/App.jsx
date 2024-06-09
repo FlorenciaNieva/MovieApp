@@ -3,7 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import DetailsMovie from "./components/DetailsMovie/DetailsMovie";
-import ContainMoviesView from "./components/ContainMovies/ContainMovies"; 
+import ContainMovies from "./components/ContainMovies/ContainMovies";
 import ContainFavorites from "./components/ContainFavorites/ContainFavorites";
 import ContaineSearch from "./components/ContainSearch/ContainSearch";
 import FavoritesContextProvider from "./context/favoritesContext";
@@ -18,8 +18,21 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/details/:id" element={<DetailsMovie />} />
-            <Route path="/premieres" element={<ContainMoviesView title="Premieres Movies" category="now_playing" />} />
-            <Route path="/popular" element={<ContainMoviesView title="Popular Movies" category="popular" />} />
+            <Route
+              path="/premieres"
+              element={
+                <ContainMovies
+                  title="Premieres Movies"
+                  category="now_playing"
+                />
+              }
+            />
+            <Route
+              path="/popular"
+              element={
+                <ContainMovies title="Popular Movies" category="popular" />
+              }
+            />
             <Route path="/favorites" element={<ContainFavorites />} />
             <Route path="/search" element={<ContaineSearch />} />
             <Route path="/*" element={<Error404 />} />

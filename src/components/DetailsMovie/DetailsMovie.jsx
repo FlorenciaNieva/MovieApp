@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import useMovies from "../../hooks/useMovies";
 import { useParams } from "react-router";
 import {
@@ -10,6 +10,7 @@ import {
   Text,
   useDisclosure,
   useMediaQuery,
+  Spinner,
 } from "@chakra-ui/react";
 import { FaStar } from "react-icons/fa";
 import { IoPlayCircleOutline } from "react-icons/io5";
@@ -23,14 +24,26 @@ export default function DetailsMovie() {
   const { info, getMovieId, trailer, getVideo } = useMovies();
   const params = useParams();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { isFavorite, addFavorite, removeFavorite } = useContext(FavoritesContext);
+  const { isFavorite, addFavorite, removeFavorite } =
+    useContext(FavoritesContext);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [isSmallMobile] = useMediaQuery("(max-width: 420px)");
-  const [isTablet] = useMediaQuery("(max-width: 720px)");
+  const [isSmallMobile] = useMediaQuery("(max-width: 790px)");
 
   useEffect(() => {
-    getMovieId(params.id);
-    getVideo(params.id);
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        await getMovieId(params.id);
+        await getVideo(params.id);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, [params.id]);
 
   function minToHs(min) {
@@ -42,6 +55,14 @@ export default function DetailsMovie() {
   const handleButtonTrailer = () => {
     onOpen();
   };
+
+  if (isLoading) {
+    return (
+      <Flex justifyContent="center">
+        <Spinner color="#ff2323" />
+      </Flex>
+    );
+  }
 
   return (
     <>
@@ -63,16 +84,11 @@ export default function DetailsMovie() {
       </Box>
       <Box
         position="absolute"
-        top={isTablet ? "10vh" : "25vh"}
-        left="5"
+        top="25vh"
+        pl={{ base: "40px", lg: "100px" }}
         color="white"
       >
-        <Flex
-          w="90vw"
-          h="60vh"
-          flexDir={isTablet ? "column" : "row"}
-          alignItems={isTablet ? "center" : ""}
-        >
+        <Flex w="80vw" h="60vh">
           <Image
             src={
               info.poster_path
@@ -81,7 +97,7 @@ export default function DetailsMovie() {
             }
             alt={info.title}
             w={isSmallMobile ? "0" : ""}
-            h={isTablet ? "60%" : "100%"}
+            h="100%"
             borderRadius={5}
           />
           <Box ml={5}>
@@ -106,10 +122,7 @@ export default function DetailsMovie() {
             <Heading as="h5" size="sm" mt="1">
               Overview
             </Heading>
-            <Text
-              w="100%"
-              noOfLines={isSmallMobile ? "none" : isTablet ? "6" : "none"}
-            >
+            <Text w="100%" noOfLines="none">
               {info.overview}
             </Text>
             <Button
