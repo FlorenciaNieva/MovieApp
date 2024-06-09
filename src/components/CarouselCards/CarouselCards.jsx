@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Heading } from "@chakra-ui/react";
+import { Heading, Box } from "@chakra-ui/react";
 import CardMovie from "../CardMovie/CardMovie";
 import useMovies from "../../hooks/useMovies";
 
@@ -9,11 +9,11 @@ export default function CarouselCards({ title, category }) {
   const { info, page, getMovies } = useMovies();
 
   useEffect(() => {
-    getMovies(page, category)
+    getMovies(page, category);
   }, []);
 
   return (
-    <>
+    <Box px={{ base: "20px", lg: "80px" }}>
       <Heading as="h3" size="lg" pt="20px" pl="20px">
         {title}
       </Heading>
@@ -83,6 +83,6 @@ export default function CarouselCards({ title, category }) {
           />
         ))}
       </Carousel>
-    </>
+    </Box>
   );
 }

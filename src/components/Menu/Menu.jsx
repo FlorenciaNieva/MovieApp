@@ -20,7 +20,7 @@ export default function Menu() {
         icon={<IoMenu />}
         bg="transparent"
         color="red"
-        fontSize="25px"
+        fontSize="35px"
         _hover="none"
         _focus="none"
         _active="none"
